@@ -6,13 +6,13 @@ public class CInventory : MonoBehaviour
 {
     public List<CItem> characterItems = new List<CItem>();
     public CItemDatabase itemDatabase = null;
+    public CUiInventory inventoryUI = null;
 
     private void Start()
     {
-        GiveItem(7);
+        GiveItem(2);
         GiveItem(1);
-        RemoveItem(0);
-        RemoveItem(1);
+        RemoveItem(2);
     }
 
     public void GiveItem(int id)
@@ -22,6 +22,7 @@ public class CInventory : MonoBehaviour
         if (itemToAdd != null)
         {
             characterItems.Add(itemToAdd);
+            inventoryUI.AddNewItem(itemToAdd);
             Debug.Log("Added Item : " + itemToAdd.title);
         }
         else
@@ -37,6 +38,7 @@ public class CInventory : MonoBehaviour
         if (itemToAdd != null)
         {
             characterItems.Add(itemToAdd);
+            inventoryUI.AddNewItem(itemToAdd);
             Debug.Log("Added Item : " + itemToAdd.title);
         }
         else
@@ -62,6 +64,7 @@ public class CInventory : MonoBehaviour
         if (itemToRemove != null)
         {
             characterItems.Remove(itemToRemove);
+            inventoryUI.RemoveItem(itemToRemove);
             Debug.Log("Removed Item : " + itemToRemove.title);
         }
     }

@@ -9,7 +9,6 @@ public class CItemDatabase : MonoBehaviour
     private void Awake()
     {
         BuildDatabase();
-        GetItem(2);
     }
 
     public CItem GetItem(int id)

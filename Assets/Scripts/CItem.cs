@@ -15,7 +15,7 @@ public class CItem
         this.id = id;
         this.title = title;
         this.description = description;
-        this.icon = Resources.Load<Sprite>("Sprites/Items/" + title);
+        this.icon = Resources.Load<Sprite>("Items/" + title);
         this.stats = stats;
     }
 
@@ -24,7 +24,7 @@ public class CItem
         id = item.id;
         title = item.title;
         description = item.description;
-        icon = Resources.Load<Sprite>("Sprites/Items/" + title);
+        icon = Resources.Load<Sprite>("Items/" + title);
         stats = item.stats;
     }
 }
