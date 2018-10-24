@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CUiItem : MonoBehaviour, IPointerDownHandler
+public class CUiItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public CItem item = null;
+
     private Image _spriteImage = null;
     private CUiItem _selectedItem = null;
+    private CTooltip _tooltip = null;
 
     private void Awake()
     {
         _selectedItem = GameObject.Find("SelectedItem").GetComponent<CUiItem>();
+        _tooltip = GameObject.Find("Tooltip").GetComponent<CTooltip>();
         _spriteImage = GetComponent<Image>();
         UpdateItem(null);
     }
@@ -62,6 +65,22 @@ public class CUiItem : MonoBehaviour, IPointerDownHandler
         else
         {
             Debug.Log(gameObject.transform.name + "No Items");
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (item != null)
+        {
+            _tooltip.GenerateTooltip(item);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (item != null)
+        {
+            _tooltip.gameObject.SetActive(false);
         }
     }
 }
