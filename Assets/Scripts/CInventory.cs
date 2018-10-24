@@ -12,7 +12,8 @@ public class CInventory : MonoBehaviour
     {
         GiveItem(2);
         GiveItem(1);
-        RemoveItem(2);
+        GiveItem(0);
+        GiveItem(1);
     }
 
     public void GiveItem(int id)

@@ -16,6 +16,7 @@ public class CUiInventory : MonoBehaviour
         for (int i = 0; i < _slotCount; ++i)
         {
             GameObject slotInstance = Instantiate(slotPrefab, slotPanel);
+            slotInstance.name = "Slot " + (i + 1);
             uiItems.Add(slotInstance.GetComponentInChildren<CUiItem>());
         }
     }
